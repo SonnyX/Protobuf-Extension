@@ -12,7 +12,7 @@ namespace ALittle
         {
             // 检查最后的分号
             if (m_element.GetString() == null)
-                return new ABnfGuessError(m_element, "import必须以;结尾");
+                return new ABnfGuessError(m_element, "import must end with a line terminator (;)");
 
             ABnfElement child = m_element.GetText();
             if (child == null) return null;
@@ -36,7 +36,7 @@ namespace ALittle
             full_path = Path.GetDirectoryName(m_element.GetFullPath()) + "\\" + value.Replace('/', '\\');
             if (File.Exists(full_path)) return null;
 
-            return new ABnfGuessError(child, "import的文件不存在");
+            return new ABnfGuessError(child, "import file does not exist");
         }
 
         public override bool QueryCompletion(int offset, List<ALanguageCompletionInfo> list)

@@ -24,10 +24,10 @@ namespace ALittle
 		public override ABnfGuessError CheckError()
 		{
             if (m_element.GetMessageName() == null)
-                return new ABnfGuessError(m_element, "没有定义协议名");
+                return new ABnfGuessError(m_element, "No message name defined ");
 
             if (m_element.GetMessageBody() == null)
-                return new ABnfGuessError(m_element, "没有定义协议内容");
+                return new ABnfGuessError(m_element, "The content of the message is not defined ");
             return null;
 		}
 	}

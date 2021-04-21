@@ -12,7 +12,7 @@ namespace ALittle
             {
                 var name = m_element.GetElementText();
                 if (!name.StartsWith("E"))
-                    return new ABnfGuessError(m_element, "枚举类型请使用E开头");
+                    return new ABnfGuessError(m_element, "Enumeration types should start with an E");
             }
             return null;
         }

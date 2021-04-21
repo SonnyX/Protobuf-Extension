@@ -1,6 +1,4 @@
 ﻿
-using System.Collections.Generic;
-
 namespace ALittle
 {
     public class AProtobufPackageReference : AProtobufReferenceTemplate<AProtobufPackageElement>
@@ -11,7 +9,7 @@ namespace ALittle
         {
             var childs = m_element.GetChilds();
             if (childs.Count == 0 || childs[childs.Count - 1].GetElementText() != ";")
-                return new ABnfGuessError(m_element, "package语句必须以;结尾");
+                return new ABnfGuessError(m_element, "The package statement must end with a line terminator (;)");
 
             return null;
         }

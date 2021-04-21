@@ -18,7 +18,7 @@ namespace ALittle
             var project = m_file.GetProjectInfo() as AProtobufProjectInfo;
             if (project == null)
             {
-                list.Add(new ALanguageCompletionInfo("将当前文件放入工程，会全工程范围提示", null));
+                list.Add(new ALanguageCompletionInfo("Put the current file into the project, the whole project will be prompted ", null));
                 return true;
             }
 

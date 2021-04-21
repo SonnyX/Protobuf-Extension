@@ -1,11 +1,3 @@
-
-using Microsoft.VisualStudio.Language.Intellisense;
-using Microsoft.VisualStudio.Text;
-using Microsoft.VisualStudio.Text.Adornments;
-using Microsoft.VisualStudio.Text.Classification;
-using Microsoft.VisualStudio.Text.Tagging;
-using System.Collections.Generic;
-
 namespace ALittle
 {
 	public class AProtobufImportElement : ABnfNodeElement

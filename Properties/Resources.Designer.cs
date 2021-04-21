@@ -83,7 +83,7 @@ namespace ALittle.Properties {
         /// </summary>
         internal static byte[] AProtobuf {
             get {
-                object obj = ResourceManager.GetObject("AProtobuf", resourceCulture);
+                object obj = ResourceManager.GetObject("ProtobufExtension", resourceCulture);
                 return ((byte[])(obj));
             }
         }

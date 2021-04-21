@@ -24,10 +24,10 @@ namespace ALittle
         public override ABnfGuessError CheckError()
         {
             if (m_element.GetEnumName() == null)
-                return new ABnfGuessError(m_element, "没有定义枚举名");
+                return new ABnfGuessError(m_element, "Enumeration name is undefined");
 
             if (m_element.GetEnumBody() == null)
-                return new ABnfGuessError(m_element, "没有定义协议内容");
+                return new ABnfGuessError(m_element, "The content of the enumeration is undefined");
             return null;
         }
     }

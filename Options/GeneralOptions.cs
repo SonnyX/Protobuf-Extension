@@ -1,15 +1,13 @@
 ﻿using Microsoft.VisualStudio.Settings;
-using System;
 using System.ComponentModel;
-using System.Runtime.InteropServices;
 
 namespace ALittle
 {
     internal class GeneralOptions : BaseOptionModel<GeneralOptions>
     {
-        [Category("定制功能")]
-        [DisplayName("项目组")]
-        [Description("选择您所在的项目组，插件可以根据不同的项目组开启不同的功能")]
+        [Category("Customization")]
+        [DisplayName("Project Team")]
+        [Description("Choose your project group ，Plug-ins can open different functions according to different project groups")]
         [DefaultValue(ProjectTeamTypes.None)]
         [TypeConverter(typeof(EnumConverter))]
         public ProjectTeamTypes ProjectTeam { get; set; }

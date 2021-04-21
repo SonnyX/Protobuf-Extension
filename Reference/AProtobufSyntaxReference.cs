@@ -9,7 +9,7 @@ namespace ALittle
         {
             // 检查最后的分号
             if (m_element.GetStringList().Count < 2)
-                return new ABnfGuessError(m_element, "syntax语句必须以;结尾");
+                return new ABnfGuessError(m_element, "The syntax statement must end with a line terminator (;)");
 
             var child = m_element.GetText();
             if (child == null) return null;
@@ -18,7 +18,7 @@ namespace ALittle
             if (value == "proto2" || value == "proto3")
                 return null;
 
-            return new ABnfGuessError(child, "这里只能填写proto2或者proto3");
+            return new ABnfGuessError(child, "Only proto2 or proto3 can be filled here ");
         }
     }
 }

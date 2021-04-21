@@ -30,7 +30,7 @@ namespace ALittle
                 {
                     var text = m_element.GetElementText();
                     if (text != "ret_code")
-                        return new ABnfGuessError(m_element, "EMsgErrorCode对应的名称，请使用ret_code");
+                        return new ABnfGuessError(m_element, "The name corresponding to EMsgErrorCode, please use ret_code ");
                 }
             }
 

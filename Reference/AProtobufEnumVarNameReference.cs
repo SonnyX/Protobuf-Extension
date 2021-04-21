@@ -29,12 +29,12 @@ namespace ALittle
                 if (enum_name_dec.GetElementText() == "EMsgTypes")
                 {
                     if (!name.StartsWith("_"))
-                        return new ABnfGuessError(m_element, "EMsgTypes中的枚举项名请使用_开头");
+                        return new ABnfGuessError(m_element, "EMsgTypes should start with an _ for enumerations");
                 }
                 else
                 {
                     if (!name.StartsWith("e"))
-                        return new ABnfGuessError(m_element, "枚举项名请使用e开头");
+                        return new ABnfGuessError(m_element, "Enumerations should start with an e");
                 }
             }
             return null;

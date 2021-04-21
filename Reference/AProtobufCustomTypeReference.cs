@@ -16,7 +16,7 @@ namespace ALittle
         public override string QueryQuickInfo()
         {
             if (m_project == null)
-                return "将当前文件放入工程，会全工程范围提示";
+                return "Put the current file into the project，will prompt for the entire project scope";
 
             var id_child_list = m_element.GetIdList();
             if (id_child_list.Count == 0) return null;
@@ -30,7 +30,7 @@ namespace ALittle
 
             if (package == "" && m_file != null) package = m_file.GetPackage();
 
-            // 先到指定包名查找
+            // First go to the specified package name to find
             var find_element = m_project.FindElement(package, name);
             if (find_element == null)
                 find_element = m_project.FindElement("", name);
@@ -85,7 +85,7 @@ namespace ALittle
             var message_set = new HashSet<string>();
             var enum_set = new HashSet<string>();
 
-            // 如果父节点是MessageOption
+            // If the parent node is MessageOption
             if (m_element.GetParent() is AProtobufMessageOptionElement)
             {
                 match_name_list = project.MatchExtendList(package, input);
@@ -148,7 +148,7 @@ namespace ALittle
                 }
             }
 
-            // 根据当前输入来查找包名包名
+            // Find the package name according to the current input
             var package_list = project.MatchPackageList(analysis_text.Trim());
             foreach (var name in package_list)
             {
@@ -217,17 +217,17 @@ namespace ALittle
                 out_element = project.FindExtendElement(package, name);
                 if (out_element == null)
                 {
-                    // 再到全局包名查找
+                    // And then to find a global package name
                     out_element = project.FindExtendElement("", name);
                 }
             }
             else
             {
-                // 先到指定包名查找
+                // Find the first package name specified
                 out_element = project.FindElement(package, name);
                 if (out_element == null)
                 {
-                    // 再到全局包名查找
+                    // And then to find a global package name
                     out_element = project.FindElement("", name);
                 }
             }

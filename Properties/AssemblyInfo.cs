@@ -10,17 +10,16 @@
 //***************************************************************************
 
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AProtobuf")]
+[assembly: AssemblyTitle("ProtobufExtension")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("AProtobuf")]
+[assembly: AssemblyProduct("ProtobufExtension")]
 [assembly: AssemblyCopyright("Copyright © Microsoft")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

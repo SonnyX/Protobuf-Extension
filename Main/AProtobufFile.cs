@@ -57,7 +57,7 @@ namespace ALittle
             var project_info = GetProjectInfo();
             if (project_info == null)
             {
-                MessageBox.Show("请将当前文件加入到工程后再进行编译");
+                MessageBox.Show("Please add the current file to the project before compiling ");
                 return true;
             }
 
@@ -65,7 +65,7 @@ namespace ALittle
             string bat_file_path = path + "BuildProtoFile.bat";
             if (!File.Exists(bat_file_path))
             {
-                MessageBox.Show("请在当前工程目录下编写BuildProtoFile.bat，并且接受一个参数：文件路径");
+                MessageBox.Show("Please write BuildProtoFile.bat in the current project directory and accept one parameter: file path ");
                 return true;
             }
 
@@ -83,7 +83,7 @@ namespace ALittle
             var project_info = GetProjectInfo();
             if (project_info == null)
             {
-                MessageBox.Show("请将当前文件加入到工程后再进行编译");
+                MessageBox.Show("Please add the current file to the project before compiling ");
                 return true;
             }
 
@@ -91,7 +91,7 @@ namespace ALittle
             string bat_file_path = path + "BuildProtoProject.bat";
             if (!File.Exists(bat_file_path))
             {
-                MessageBox.Show("请在当前工程目录下编写BuildProtoProject.bat，没有参数");
+                MessageBox.Show("Please write BuildProtoProject.bat in the current project directory without parameters ");
                 return true;
             }
 
@@ -107,7 +107,7 @@ namespace ALittle
             if (HasError())
             {
                 // 提示错误
-                MessageBox.Show("当前有语法错误，请修正后再格式化");
+                MessageBox.Show("There currently are syntax errors, please correct it before formatting");
                 return null;
             }
 
@@ -177,7 +177,7 @@ namespace ALittle
                         buffer += "\n";
                     }
                     else
-                        throw new System.Exception("未知节点类型:" + child.GetNodeType());
+                        throw new System.Exception("Unknown node type:" + child.GetNodeType());
 
                     last_line = child.GetEndLine();
                 }
@@ -1091,14 +1091,14 @@ namespace ALittle
 
                     var string_value = string_child.GetElementString();
                     if (string_value != "proto2" && string_value != "proto3")
-                        AddAnalysisErrorInfo(string_child, "这里只能填写proto2或者proto3");
+                        AddAnalysisErrorInfo(string_child, "Only proto2 or proto3 can be filled here ");
                     m_syntax = string_value;
 
                     var string_list = syntax.GetStringList();
                     if (string_list.Count == 0
                         || string_list[string_list.Count - 1].GetElementText() != ";")
                     {
-                        AddAnalysisErrorInfo(element, "必须以;结尾");
+                        AddAnalysisErrorInfo(element, "Must end with a line terminator (;)");
                     }
                     continue;
                 }
@@ -1114,14 +1114,14 @@ namespace ALittle
                     var name = name_child.GetElementText();
                     if (name.Length != 0 && m_package.Length != 0)
                     {
-                        AddAnalysisErrorInfo(element, "package最多只能定义一个");
+                        AddAnalysisErrorInfo(element, "At most one package can be defined");
                         continue;
                     }
                     m_package = name;
 
                     if (package.GetString() == null)
                     {
-                        AddAnalysisErrorInfo(element, "必须以;结尾");
+                        AddAnalysisErrorInfo(element, "Must end with a line terminator (;)");
                     }
                     continue;
                 }
@@ -1137,7 +1137,7 @@ namespace ALittle
 
                     if (import.GetString() == null)
                     {
-                        AddAnalysisErrorInfo(element, "必须以;结尾");
+                        AddAnalysisErrorInfo(element, "Must end with a line terminator (;)");
                     }
                     continue;
                 }
@@ -1184,7 +1184,7 @@ namespace ALittle
                 {
                     if (info_set.Count <= 1) continue;
 
-                    AddCheckErrorInfo(message.Value.element.GetMessageName(), "重复定义");
+                    AddCheckErrorInfo(message.Value.element.GetMessageName(), "Duplicate definition ");
                 }
             }
 
@@ -1195,7 +1195,7 @@ namespace ALittle
                 {
                     if (info_set.Count <= 1) continue;
 
-                    AddCheckErrorInfo(enumv.Value.element.GetEnumName(), "重复定义");
+                    AddCheckErrorInfo(enumv.Value.element.GetEnumName(), "Duplicate definition ");
                 }
             }
         }
@@ -1218,11 +1218,11 @@ namespace ALittle
                     string var_name = var_name_child.GetElementText();
                     if (extend_names.ContainsKey(var_name))
                     {
-                        AddAnalysisErrorInfo(var_name_child, "重复定义");
+                        AddAnalysisErrorInfo(var_name_child, "Duplicate definition");
                     }
                     else if (var_name.Length > 0 && char.IsDigit(var_name[0]))
                     {
-                        AddAnalysisErrorInfo(var_name_child, "extend字段名称不能以数字开头");
+                        AddAnalysisErrorInfo(var_name_child, "The extend field name cannot start with a number");
                     }
                     else
                     {
@@ -1235,11 +1235,11 @@ namespace ALittle
                     int var_num = 0;
                     if (!int.TryParse(var_num_child.GetElementText(), out var_num) || var_num <= 0)
                     {
-                        AddAnalysisErrorInfo(var_num_child, "请输入大于0的数字");
+                        AddAnalysisErrorInfo(var_num_child, "Please enter a number greater than 0 ");
                     }
                     else if (extend_numbers.Contains(var_num))
                     {
-                        AddAnalysisErrorInfo(var_num_child, "当前数字已被使用");
+                        AddAnalysisErrorInfo(var_num_child, "Current number is already in use");
                     }
                     else
                     {
@@ -1263,11 +1263,11 @@ namespace ALittle
                     string var_name = var_name_child.GetElementText();
                     if (oneof_names.ContainsKey(var_name))
                     {
-                        AddAnalysisErrorInfo(var_name_child, "重复定义");
+                        AddAnalysisErrorInfo(var_name_child, "Duplicate definition");
                     }
                     else if (var_name.Length > 0 && char.IsDigit(var_name[0]))
                     {
-                        AddAnalysisErrorInfo(var_name_child, "oneof字段名称不能以数字开头");
+                        AddAnalysisErrorInfo(var_name_child, "The oneof field name cannot start with a number ");
                     }
                     else
                     {
@@ -1280,11 +1280,11 @@ namespace ALittle
                     int var_num = 0;
                     if (!int.TryParse(var_num_child.GetElementText(), out var_num) || var_num <= 0)
                     {
-                        AddAnalysisErrorInfo(var_num_child, "请输入大于0的数字");
+                        AddAnalysisErrorInfo(var_num_child, "Please enter a number greater than 0 ");
                     }
                     else if (oneof_numbers.Contains(var_num))
                     {
-                        AddAnalysisErrorInfo(var_num_child, "当前数字已被使用");
+                        AddAnalysisErrorInfo(var_num_child, "Current number is already in use");
                     }
                     else
                     {
@@ -1299,18 +1299,18 @@ namespace ALittle
             var name_child = element.GetMessageName();
             if (name_child == null)
             {
-                AddAnalysisErrorInfo(element, "message没有定义名称");
+                AddAnalysisErrorInfo(element, "message has no name defined");
                 return;
             }
 
             var message_name = name_child.GetElementText();
             if (messages.ContainsKey(message_name))
             {
-                AddAnalysisErrorInfo(name_child, "重复定义");
+                AddAnalysisErrorInfo(name_child, "Duplicate definition");
             }
             else if (message_name.Length > 0 && char.IsDigit(message_name[0]))
             {
-                AddAnalysisErrorInfo(name_child, "message名称不能以数字开头");
+                AddAnalysisErrorInfo(name_child, "The message name cannot start with a number ");
             }
 
             AProtobufMessageInfo info = new AProtobufMessageInfo();
@@ -1320,7 +1320,7 @@ namespace ALittle
             var message_body = element.GetMessageBody();
             if (message_body == null)
             {
-                AddAnalysisErrorInfo(element, "message没有定义内容");
+                AddAnalysisErrorInfo(element, "message content is not defined");
                 return;
             }
 
@@ -1338,14 +1338,14 @@ namespace ALittle
                         {
                             if (modifier_value == "singular")
                             {
-                                AddAnalysisErrorInfo(modifier_child, m_syntax + "不支持关键字:" + modifier_value + ", proto3支持");
+                                AddAnalysisErrorInfo(modifier_child, m_syntax + "Keyword not supported:" + modifier_value + ", proto3 support");
                             }
                         }
                         else if (m_syntax == "proto3")
                         {
                             if (modifier_value == "required" || modifier_value == "optional")
                             {
-                                AddAnalysisErrorInfo(modifier_child, m_syntax + "不支持关键字:" + modifier_value + ", proto2支持");
+                                AddAnalysisErrorInfo(modifier_child, m_syntax + "Keyword not supported:" + modifier_value + ", proto2 support");
                             }
                         }
                     }
@@ -1359,11 +1359,11 @@ namespace ALittle
                     string var_name = var_name_child.GetElementText();
                     if (var_names.Contains(var_name))
                     {
-                        AddAnalysisErrorInfo(var_name_child, "重复定义");
+                        AddAnalysisErrorInfo(var_name_child, "Duplicate definition");
                     }
                     else if (var_name.Length > 0 && char.IsDigit(var_name[0]))
                     {
-                        AddAnalysisErrorInfo(var_name_child, "message字段名称不能以数字开头");
+                        AddAnalysisErrorInfo(var_name_child, "The message field name cannot start with a number");
                     }
                     else
                     {
@@ -1376,11 +1376,11 @@ namespace ALittle
                     int var_num = 0;
                     if (!int.TryParse(var_num_child.GetElementText(), out var_num) || var_num <= 0)
                     {
-                        AddAnalysisErrorInfo(var_num_child, "请输入大于0的数字");
+                        AddAnalysisErrorInfo(var_num_child, "Please enter a number greater than 0");
                     }
                     else if (var_nums.Contains(var_num))
                     {
-                        AddAnalysisErrorInfo(var_num_child, "当前数字已被使用");
+                        AddAnalysisErrorInfo(var_num_child, "Current number is already in use");
                     }
                     else
                     {
@@ -1399,7 +1399,7 @@ namespace ALittle
                     var option_name = FormatCustomType(custom_type);
                     if (option_names.Contains(option_name))
                     {
-                        AddAnalysisErrorInfo(custom_type, "重复定义");
+                        AddAnalysisErrorInfo(custom_type, "Duplicate definition ");
                     }
                     else
                     {
@@ -1429,24 +1429,24 @@ namespace ALittle
             var name_child = element.GetEnumName();
             if (name_child == null)
             {
-                AddAnalysisErrorInfo(element, "enum没有定义名称");
+                AddAnalysisErrorInfo(element, "enum has no defined name");
                 return;
             }
 
             var enum_name = name_child.GetElementText();
             if (enums.ContainsKey(enum_name))
             {
-                AddAnalysisErrorInfo(name_child, "重复定义");
+                AddAnalysisErrorInfo(name_child, "Duplicate definition ");
             }
             else if (enum_name.Length > 0 && char.IsDigit(enum_name[0]))
             {
-                AddAnalysisErrorInfo(name_child, "enum名称不能以数字开头");
+                AddAnalysisErrorInfo(name_child, "enum name cannot start with a number ");
             }
 
             var enum_body = element.GetEnumBody();
             if (enum_body == null)
             {
-                AddAnalysisErrorInfo(element, "enum没有定义内容");
+                AddAnalysisErrorInfo(element, "enum does not define content ");
                 return;
             }
 
@@ -1464,11 +1464,11 @@ namespace ALittle
                 string var_name = var_name_child.GetElementText();
                 if (var_names.Contains(var_name))
                 {
-                    AddAnalysisErrorInfo(var_name_child, "重复定义");
+                    AddAnalysisErrorInfo(var_name_child, "Duplicate definition ");
                 }
                 else if (var_name.Length > 0 && char.IsDigit(var_name[0]))
                 {
-                    AddAnalysisErrorInfo(var_name_child, "enum字段名称不能以数字开头");
+                    AddAnalysisErrorInfo(var_name_child, "Enum field name cannot start with a number ");
                 }
                 else
                 {
@@ -1483,17 +1483,17 @@ namespace ALittle
                 int var_num = 0;
                 if (!int.TryParse(var_num_child.GetElementText(), out var_num) || var_num < 0)
                 {
-                    AddAnalysisErrorInfo(var_num_child, "请输入大于0的数字");
+                    AddAnalysisErrorInfo(var_num_child, "Please enter a number greater than 0 ");
                 }
                 else if (var_nums.Contains(var_num))
                 {
-                    AddAnalysisErrorInfo(var_num_child, "当前数字已被使用");
+                    AddAnalysisErrorInfo(var_num_child, "The current number has been used ");
                 }
                 else if (var_nums.Count == 0 && var_num != 0)
                 {
                     if (m_syntax == "proto3")
                     {
-                        AddAnalysisErrorInfo(var_num_child, "proto3语法中的枚举第一个字段的枚举值必须是0");
+                        AddAnalysisErrorInfo(var_num_child, "The enumeration value of the first field of the enumeration in the proto3 syntax must be 0");
                     }
                 }
                 else
@@ -1508,19 +1508,19 @@ namespace ALittle
             var all_type = element.GetAllType();
             if (all_type == null)
             {
-                AddAnalysisErrorInfo(element, "map没有定义Key的类型");
+                AddAnalysisErrorInfo(element, "map does not define the type of Key ");
             }
             else
             {
                 var key_type = all_type.GetElementText();
                 if (key_type != "string" && key_type != "bool" && !AProtobufFactoryClass.inst.IsInt(key_type))
-                    AddAnalysisErrorInfo(all_type, "map的key必须是整型、string、bool");
+                    AddAnalysisErrorInfo(all_type, "The key of the map must be an integer, string or bool");
             }
 
             CollectCustomTypeElement(element.GetCustomType());
 
             if (element.GetPrimitiveType() == null && element.GetCustomType() == null)
-                AddAnalysisErrorInfo(element, "map没有定义Value的类型");
+                AddAnalysisErrorInfo(element, "map does not define the type of Value");
         }
 
         private void CheckRepeatedType(AProtobufRepeatedTypeElement element)

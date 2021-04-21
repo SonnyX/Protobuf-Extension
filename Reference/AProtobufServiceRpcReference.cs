@@ -24,11 +24,11 @@ namespace ALittle
 		public override ABnfGuessError CheckError()
 		{
             if (m_element.GetServiceRpcName() == null)
-                return new ABnfGuessError(m_element, "没有定义Rpc名");
+                return new ABnfGuessError(m_element, "Rpc service name is not defined ");
 
             var childs = m_element.GetChilds();
             if (childs.Count == 0 || childs[childs.Count - 1].GetElementText() != ";")
-                return new ABnfGuessError(m_element, "Rpc表达式没有以;结尾");
+                return new ABnfGuessError(m_element, "Rpc expression does not end with a line terminator (;)");
             return null;
 		}
 	}

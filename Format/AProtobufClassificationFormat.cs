@@ -1,7 +1,4 @@
-﻿
-using System;
-using System.ComponentModel.Composition;
-using System.Windows;
+﻿using System.ComponentModel.Composition;
 using System.Windows.Media;
 using Microsoft.VisualStudio.Text.Classification;
 using Microsoft.VisualStudio.Utilities;
@@ -17,7 +14,7 @@ namespace ALittle
     {
         public AProtobufKeyWordClassificationFormatDefinition()
         {
-            DisplayName = "AProtobuf关键字";
+            DisplayName = "Protobuf-Extension keyword ";
             if (ALanguageUtility.IsDarkTheme())
             {
                 var color = new Color();
@@ -43,7 +40,7 @@ namespace ALittle
     {
         public AProtobufCustomNameClassificationFormatDefinition()
         {
-            DisplayName = "AProtobuf消息枚举名";
+            DisplayName = "Protobuf-Extension message & enumeration name";
             if (ALanguageUtility.IsDarkTheme())
             {
                 var color = new Color();
@@ -74,7 +71,7 @@ namespace ALittle
     {
         public AProtobufMessageVarNameClassificationFormatDefinition()
         {
-            DisplayName = "AProtobuf消息字段名";
+            DisplayName = "Protobuf-Extension message field name ";
             if (ALanguageUtility.IsDarkTheme())
             {
                 var color = new Color();
@@ -98,7 +95,7 @@ namespace ALittle
     {
         public AProtobufEnumVarNameClassificationFormatDefinition()
         {
-            DisplayName = "AProtobuf枚举字段名";
+            DisplayName = "Protobuf-Extension enumeration field name ";
             if (ALanguageUtility.IsDarkTheme())
             {
                 var color = new Color();
@@ -124,7 +121,7 @@ namespace ALittle
     {
         public AProtobufCommentClassificationFormatDefinition()
         {
-            DisplayName = "AProtobuf注释"; 
+            DisplayName = "Protobuf-Extension comments"; 
             if (ALanguageUtility.IsDarkTheme())
             {
                 var color = new Color();
@@ -150,7 +147,7 @@ namespace ALittle
     {
         public AProtobufTextClassificationFormatDefinition()
         {
-            DisplayName = "AProtobuf字符串";
+            DisplayName = "Protobuf-Extension text";
             if (ALanguageUtility.IsDarkTheme())
             {
                 var color = new Color();
@@ -176,7 +173,7 @@ namespace ALittle
     {
         public AProtobufNumberClassificationFormatDefinition()
         {
-            DisplayName = "AProtobuf数字";
+            DisplayName = "Protobuf-Extension number";
             if (ALanguageUtility.IsDarkTheme())
             {
                 var color = new Color();

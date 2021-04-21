@@ -18,11 +18,11 @@ namespace ALittle
                 {
                     var element_info = project.FindEnumElementInfo("", "EMsgTypes");
                     if (element_info == null)
-                        return new ABnfGuessError(m_element, "没有在全局定义enum EMsgTypes");
+                        return new ABnfGuessError(m_element, "enum EMsgTypes is not defined globally");
 
                     var enum_var_name = "_" + name;
                     if (!element_info.name_map.ContainsKey(enum_var_name))
-                        return new ABnfGuessError(m_element, "在EMsgTypes中没有定义" + enum_var_name);
+                        return new ABnfGuessError(m_element, "Not defined in EMsgTypes" + enum_var_name);
                 }
             }
 

@@ -139,7 +139,7 @@ namespace ALittle
     {
         public AProtobufHighlightWordFormatDefinition()
         {
-            DisplayName = "AProtobuf高亮";
+            DisplayName = "Protobuf-Extension highlight";
             if (ALanguageUtility.IsDarkTheme())
             {
                 var color = new Color();

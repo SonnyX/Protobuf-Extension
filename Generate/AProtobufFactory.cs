@@ -1,7 +1,3 @@
-
-using Microsoft.VisualStudio.Language.Intellisense;
-using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.VisualStudio.Text.Tagging;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;

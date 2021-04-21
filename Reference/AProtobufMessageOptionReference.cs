@@ -29,27 +29,27 @@ namespace ALittle
 
                 if (id_text == "primary")
                 {
-                    return "填写一个字段为主键或多个字段为符合主键，多个字段使用,隔开";
+                    return "Fill in one field as the primary key or multiple fields as conforming to the primary key. Use multiple fields and separate them";
                 }
                 else if (id_text == "unique" || id_text == "index")
                 {
-                    return "填写一个字段为索引或多个字段为符合索引，多个字段使用,隔开。可以定义多组，多组则使用|隔开";
+                    return "Fill in one field as an index or multiple fields as conforming to the index ，Use multiple fields and separate them. Multiple groups can be defined, and multiple groups are separated by | ";
                 }
                 else if (id_text == "split_count")
                 {
-                    return "定义分表数量";
+                    return "Define the number of sub-tables";
                 }
                 else if (id_text == "split_incr_interval")
                 {
-                    return "定义分表之间自增长ID的区间间隔";
+                    return "Define the interval interval of self-increasing ID between sub-tables";
                 }
                 else if (id_text == "split_incr_start")
                 {
-                    return "定义第一张分表的自增长ID起始值";
+                    return "Define the starting value of the self-increasing ID of the first sub-table";
                 }
                 else if (id_text == "primary_incr")
                 {
-                    return "定义主键是都是自增长，请填\"true\"或者\"false\"";
+                    return "Define the primary key is self-increment, please fill in \"true\" or \"false\"";
                 }
             }
 
@@ -91,28 +91,28 @@ namespace ALittle
                 if (id_text == "primary")
                 {
                     if (const_text == null)
-                        return new ABnfGuessError(const_value, id_text + "必须使用字符串赋值");
+                        return new ABnfGuessError(const_value, id_text + "String assignment must be used");
                     var const_string = const_text.GetElementString();
                     if (const_string == "")
-                        return new ABnfGuessError(const_value, id_text + "不能是空串");
+                        return new ABnfGuessError(const_value, id_text + "Cannot be an empty string");
                     var const_split = const_string.Split(',');
                     foreach (var const_var in const_split)
                     {
                         var const_var_trim = const_var.Trim();
                         if (const_var_trim.Length == 0)
-                            return new ABnfGuessError(const_value, id_text +"内部包含空字段名");
+                            return new ABnfGuessError(const_value, id_text +"Contains empty field names inside");
 
                         if (!name_set.Contains(const_var_trim))
-                            return new ABnfGuessError(const_value, const_var_trim + "不是字段名");
+                            return new ABnfGuessError(const_value, const_var_trim + "Not a field name");
                     }
                 }
                 else if (id_text == "unique" || id_text == "index")
                 {
                     if (const_text == null)
-                        return new ABnfGuessError(const_value, id_text + "必须使用字符串赋值");
+                        return new ABnfGuessError(const_value, id_text + "String assignment must be used");
                     var const_string = const_text.GetElementString();
                     if (const_string == "")
-                        return new ABnfGuessError(const_value, id_text + "不能是空串");
+                        return new ABnfGuessError(const_value, id_text + "Cannot be an empty string");
                     var const_combine_split = const_string.Split('|');
                     foreach (var const_combine in const_combine_split)
                     {
@@ -121,54 +121,54 @@ namespace ALittle
                         {
                             var const_var_trim = const_var.Trim();
                             if (const_var_trim.Length == 0)
-                                return new ABnfGuessError(const_value, id_text + "内部包含空字段名");
+                                return new ABnfGuessError(const_value, id_text + "Contains empty field names inside");
 
                             if (!name_set.Contains(const_var_trim))
-                                return new ABnfGuessError(const_value, const_var_trim + "不是字段名");
+                                return new ABnfGuessError(const_value, const_var_trim + "Not a field name");
                         }
                     }
                 }
                 else if (id_text == "split_count")
                 {
                     if (const_text == null)
-                        return new ABnfGuessError(const_value, id_text + "必须使用字符串赋值");
+                        return new ABnfGuessError(const_value, id_text + "String assignment must be used ");
                     var const_string = const_text.GetElementString();
 
                     if (!int.TryParse(const_string, out int result))
-                        return new ABnfGuessError(const_value, id_text + "必须是一个数字");
+                        return new ABnfGuessError(const_value, id_text + "Must be a number");
                     if (result < 2)
-                        return new ABnfGuessError(const_value, id_text + "必须大于或等于2");
+                        return new ABnfGuessError(const_value, id_text + "Must be greater than or equal to 2");
                 }
                 else if (id_text == "split_incr_interval")
                 {
                     if (const_text == null)
-                        return new ABnfGuessError(const_value, id_text + "必须使用字符串赋值");
+                        return new ABnfGuessError(const_value, id_text + "String assignment must be used ");
                     var const_string = const_text.GetElementString();
 
                     if (!long.TryParse(const_string, out long result))
-                        return new ABnfGuessError(const_value, id_text + "必须是一个数字");
+                        return new ABnfGuessError(const_value, id_text + "Must be a number ");
                     if (result <= 0)
-                        return new ABnfGuessError(const_value, id_text + "必须大于0");
+                        return new ABnfGuessError(const_value, id_text + "Must be greater than 0 ");
                 }
                 else if (id_text == "split_incr_start")
                 {
                     if (const_text == null)
-                        return new ABnfGuessError(const_value, id_text + "必须使用字符串赋值");
+                        return new ABnfGuessError(const_value, id_text + "String assignment must be used ");
                     var const_string = const_text.GetElementString();
 
                     if (!int.TryParse(const_string, out int result))
-                        return new ABnfGuessError(const_value, id_text + "必须是一个数字");
+                        return new ABnfGuessError(const_value, id_text + "Must be a number ");
                     if (result < 0)
-                        return new ABnfGuessError(const_value, id_text + "必须大于或等于0");
+                        return new ABnfGuessError(const_value, id_text + "Must be greater than or equal to 0 ");
                 }
                 else if (id_text == "primary_incr")
                 {
                     if (const_text == null)
-                        return new ABnfGuessError(const_value, id_text + "必须使用字符串赋值");
+                        return new ABnfGuessError(const_value, id_text + "String assignment must be used ");
                     var const_string = const_text.GetElementString();
 
                     if (const_string != "true" && const_string != "false")
-                        return new ABnfGuessError(const_value, id_text + "只能填\"true\"或\"false\"");
+                        return new ABnfGuessError(const_value, id_text + "Only fill in \"true\" or \"false\" ");
                 }
             }
 

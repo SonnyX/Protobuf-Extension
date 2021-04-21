@@ -15,10 +15,10 @@
         defining some of the constants that we will use inside the file. -->
 
   <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
-  <Extern href="stdidcmd.h"/>
+  <Extern href="stdidcmd.h" />
 
   <!--This header contains the command ids for the menus provided by the shell. -->
-  <Extern href="vsshlids.h"/>
+  <Extern href="vsshlids.h" />
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
@@ -37,10 +37,10 @@
          must be a menu. -->
     <Groups>
       <Group guid="guidAProtobufPackageCodeCmdSet" id="CodeMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN"/>
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
       </Group>
       <Group guid="guidAProtobufPackageExtensionCmdSet" id="ExtensionMenuGroup" priority="0x0601">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_EXTENSIONS"/>
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_EXTENSIONS" />
       </Group>
     </Groups>
 
@@ -66,7 +66,7 @@
         <Parent guid="guidAProtobufPackageExtensionCmdSet" id="ExtensionMenuGroup" />
         <Icon guid="guidImages" id="command_icon" />
         <Strings>
-          <ButtonText>快速跳转到定义</ButtonText>
+          <ButtonText>Quick jump to the definition</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -78,10 +78,9 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\Command.png" usedList="command_icon"/>
+      <Bitmap guid="guidImages" href="Resources\Command.png" usedList="command_icon" />
     </Bitmaps>
   </Commands>
-
 
   <!--This section is where you can associate a command with a keyboard shortcut; this association is
   valid within a specific UI context, that is when the shell is inside a specific mode, e.g. during
@@ -125,7 +124,11 @@
       <IDSymbol name="FastGotoCommandId" value="0x0101" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{d04f80ac-7179-47d2-881f-a40d1658e3ba}" >
+    <GuidSymbol name="guidSHLMainMenu" value="{d309f791-903f-11d0-9efc-00a0c911004f}">
+      <IDSymbol name="IDM_VS_MENU_EXTENSIONS" value="0x0091" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{d04f80ac-7179-47d2-881f-a40d1658e3ba}">
       <IDSymbol name="command_icon" value="1" />
     </GuidSymbol>
   </Symbols>

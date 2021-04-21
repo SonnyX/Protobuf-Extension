@@ -285,7 +285,7 @@ namespace ALittle
             }
 
             if (element == null)
-                return "找不到在包(" + package + ")的协议或枚举(" + name + ")";
+                return $"Could not find the message or enum ({name}) in package ({package})";
 
             if (element is AProtobufMessageElement)
                 element = (element as AProtobufMessageElement).GetMessageName();

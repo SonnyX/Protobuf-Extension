@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="110" xml:space="preserve">
-    <value>AProtobufPackage Extension</value>
+    <value>Protobuf-Extension</value>
   </data>
   <data name="112" xml:space="preserve">
-    <value>AProtobufPackage Visual Studio Extension Detailed Info</value>
+    <value>Protobuf-Extension Visual Studio Extension Detailed Info</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AProtobuf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ProtobufExtension" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AProtobuf.abnf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="EnumIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
